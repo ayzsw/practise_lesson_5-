@@ -43,28 +43,29 @@ class SecondViewController: UIViewController {
             username_1TF.layer.borderWidth = 2
             username_1TF.layer.borderColor = UIColor.red.cgColor
             username_1TF.placeholder = "Пожалуйста, заполните!"
+            
+            if mobileNumber_1TF.text?.isEmpty ?? true {
+                mobileNumber_1TF.layer.borderWidth = 2
+                mobileNumber_1TF.layer.borderColor = UIColor.red.cgColor
+                mobileNumber_1TF.placeholder = "Пожалуйста, заполните!"
+            }
+            if email_2TF.text?.isEmpty ?? true {
+                email_2TF.layer.borderWidth = 2
+                email_2TF.layer.borderColor = UIColor.red.cgColor
+                email_2TF.placeholder = "Пожалуйста, заполните!"
+            }
+            if password_2Tf.text?.isEmpty ?? true {
+                password_2Tf.layer.borderWidth = 2
+                password_2Tf.layer.borderColor = UIColor.red.cgColor
+                password_2Tf.placeholder = "Пожалуйста, заполните!"
+            }
+            if username_1TF.text?.isEmpty == false &&
+                mobileNumber_1TF.text?.isEmpty == false && email_2TF.text?.isEmpty == false && password_2Tf.text?.isEmpty == false{
+                let openThirdVC = self.storyboard?.instantiateViewController(withIdentifier: "ThirdViewController") as! ThirdViewController
+                openThirdVC.myDigit = email_2TF.text ?? ""
+                self.navigationController?.pushViewController(openThirdVC, animated: false)
+            }
         }
-        if mobileNumber_1TF.text?.isEmpty ?? true {
-            mobileNumber_1TF.layer.borderWidth = 2
-            mobileNumber_1TF.layer.borderColor = UIColor.red.cgColor
-            mobileNumber_1TF.placeholder = "Пожалуйста, заполните!"
-        }
-        if email_2TF.text?.isEmpty ?? true {
-            email_2TF.layer.borderWidth = 2
-            email_2TF.layer.borderColor = UIColor.red.cgColor
-            email_2TF.placeholder = "Пожалуйста, заполните!"
-        }
-        if password_2Tf.text?.isEmpty ?? true {
-            password_2Tf.layer.borderWidth = 2
-            password_2Tf.layer.borderColor = UIColor.red.cgColor
-            password_2Tf.placeholder = "Пожалуйста, заполните!"
-        }
-        if username_1TF.text?.isEmpty == false &&
-            mobileNumber_1TF.text?.isEmpty == false && email_2TF.text?.isEmpty == false && password_2Tf.text?.isEmpty == false{
-            let openThirdVC = self.storyboard?.instantiateViewController(withIdentifier: "ThirdViewController") as! ThirdViewController
-            openThirdVC.myDigit = email_2TF.text ?? ""
-            self.navigationController?.pushViewController(openThirdVC, animated: false)
-        }
+        
     }
-    
 }
